@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Exmple Implementation API Github </title>
+	<script src="https://rawgit.com/lamhotsimamora/GF-Javascript/master/JS/GF-1.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style type="text/css">
+	 	.bold_text {  font-weight: bold; }
+	</style>
+</head>
+<body>
+	<div class="container">
+	  <div class="jumbotron">
+	    <h1>Example Implementation API Github</h1> 
+	    <p>Bootstrap & <a href="https://github.com/lamhotsimamora/GF-Javascript">Garuda Query Javascript</a></p> 
+	  </div>
+	 
+	</div>
+	<div class="container">
+		<div id="message"></div>
+		<input type="text" class="form-control" placeholder="Username Github" id="user_input"></br>
+		<button id="btn_proses" class="btn btn-primary" onclick="getProfileUser();"">Run</button>
+	</div>
+	</br>
+	<div class="container">
+		<ul class="list-group">
+		<div class="panel panel-success">
+			<div class="panel-heading">User Profile</div>
+			<div class="panel-body">
+				  <li class="list-group-item list-group-item-default">ID User : 		<div id="id_user" class="bold_text"></div>			</li>	</br>
+				   <li class="list-group-item list-group-item-default">Username : 		<div id="username" class="bold_text"></div>			</li>	</br>
+				  <li class="list-group-item list-group-item-default">Location User : 	<div id="location_user" class="bold_text"></div>	</li>	</br>
+				  <li class="list-group-item list-group-item-default">Quote User : 		<div id="quote_user" class="bold_text"></div>		</li>	</br>
+				  <li class="list-group-item list-group-item-default">Company User : 	<div id="company_user" class="bold_text"></div>		</li>	</br>
+				  <li class="list-group-item list-group-item-default">Avatar Url : 		<div id="avatar_url" class="bold_text"></div>		</li>	</br>
+				  <li class="list-group-item list-group-item-default">Blog User : 		<div id="blog_user" class="bold_text"></div>		</li>	</br>
+				  <li class="list-group-item list-group-item-default">Public Repository : <div id="repo_user" class="bold_text"></div>		</li>	</br>
+				  <li class="list-group-item list-group-item-default">Follower :   		<span style="cursor:pointer"><a id="follower_link"><div id="follower_user" class="bold_text"></div></a></span></li>	</br>
+				  <li class="list-group-item list-group-item-default">Subscriber :   	<span style="cursor:pointer"><a id="subscriber_link"><div id="subscriber_user" class="bold_text"></div></a></span></li>	
+			</div>
+		</div>
+		
+		</ul>
+	</div>
+
+	
+	<script type="text/javascript">
+	/**
+	 * Garuda Javascript Query
+	 *
+	 * Method that used :
+	 * 
+	 * _loadDoc("");
+	 * _printTo("");
+	 * _clear("");
+	 * _focus("");
+	 */
+		var user_input;
+
+		function clearAll()
+		{
+			/**
+			 * clear div object
+			 */
+			_clear("id_user",true);
+			_clear("location_user",true);
+			_clear("quote_user",true);
+			_clear("company_user",true);
+			_clear("avatar_url",true);
+			_clear("blog_user",true);
+			_clear("message",true);
+			_clear("username",true);
+			_clear("repo_user",true);
+		}
+
+		function getProfileUser()
+		{
+			clearAll();
+			
+			user_input = _getValById("user_input");
+
+			if (user_input)
+			{
+				_getById("btn_proses").innerHTML="Please Wait...";
+				/**
+				 * [_loadDoc Ajax Request Load Document]
+				 * @URL  {String} "https://api.github.com/users/username"				
+				 * @return {[response.Text]}  
+				 */
+				_loadDoc("https://api.github.com/users/"+user_input+"",function(res)
+				{
+						_getById("btn_proses").innerHTML="Go";
+						/**
+						 * res == Checking if status 404
+						 * @type {[boolean]}
+						 */
+						if (res===false)
+						{
+							/**
+							 * show alert of bootstrap
+							 */
+							_writeAlert("message","User not found !","danger");
+							_focus("user_input");
+							return;
+						}
+						/**
+						 * JSON Parse
+						 * obj {[obj]}
+						 */
+						var obj 	 	= JSON.parse(res);
+						var id       	= obj.id;
+						var username 	= obj.login;
+						var location 	= obj.location;
+						var company  	= obj.company;
+						var quote 	 	= obj.bio;
+						var avatar   	= obj.avatar_url;
+						var blog 	 	= obj.blog;
+						var repo     	= obj.public_repos;
+						var follower    = obj.followers_url;
+						var subscriber  = obj.subscriptions_url;
+
+						/**
+						 * _printTo("") === document.getElementById("").innerHTML ="";
+						 */
+						_printTo("id_user",id);
+						_printTo("location_user",location);
+						_printTo("quote_user",quote);
+						_printTo("company_user",company);
+						_printTo("avatar_url",avatar);
+						_printTo("blog_user",blog);
+						_printTo("username",username);
+						_printTo("repo_user",repo);
+						_printTo("follower_user",follower);
+						_printTo("subscriber_user",subscriber);
+
+						_onClick("follower_link",function(){
+							_newForm(false,follower);
+						});
+						_onClick("subscriber_link",function(){
+							_newForm(false,subscriber);
+						});
+				});
+			}
+			else
+			{
+				_focus("user_input");
+				_writeAlert("message","Upzz you have to type the username","danger"); 
+			}
+		}
+		/**
+		 * set focus to input text
+		 */
+		_focus("user_input");
+
+
+		clearAll();
+
+	</script>
+
+
+
+</body>
+</html>
