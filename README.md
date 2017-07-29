@@ -1,6 +1,5 @@
 # Example-Api-Github
-Example use API Github with Javascript
-
-
+Example Implementation API Github with Javascript
 
 ### https://api.github.com/
+### https://api.github.com/users/{username}
