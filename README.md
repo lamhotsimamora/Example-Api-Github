@@ -3,3 +3,5 @@ Example Implementation API Github with Javascript
 
 ### https://api.github.com/
 ### https://api.github.com/users/{username}
+
+![alt text](https://garudaframeworkpro.lamhotsimamora.com/example-api-github.png)
