@@ -51,11 +51,13 @@
 	 * Garuda Javascript Query
 	 *
 	 * Method that used :
-	 * 
+	 * _getValById("");
+         * _getById("");
 	 * _loadDoc("");
 	 * _printTo("");
 	 * _clear("");
 	 * _focus("");
+         * _onClick("");
 	 */
 		var user_input;
 
@@ -111,14 +113,14 @@
 						 * JSON Parse
 						 * obj {[obj]}
 						 */
-						var obj 	 	= JSON.parse(res);
+						var obj 	= JSON.parse(res);
 						var id       	= obj.id;
 						var username 	= obj.login;
 						var location 	= obj.location;
 						var company  	= obj.company;
-						var quote 	 	= obj.bio;
+						var quote 	= obj.bio;
 						var avatar   	= obj.avatar_url;
-						var blog 	 	= obj.blog;
+						var blog 	= obj.blog;
 						var repo     	= obj.public_repos;
 						var follower    = obj.followers_url;
 						var subscriber  = obj.subscriptions_url;
@@ -136,7 +138,10 @@
 						_printTo("repo_user",repo);
 						_printTo("follower_user",follower);
 						_printTo("subscriber_user",subscriber);
-
+                                                
+						/**
+						 * _onClick() === give event method onclick to object
+						 */			  
 						_onClick("follower_link",function(){
 							_newForm(false,follower);
 						});
