@@ -34,7 +34,7 @@
 				  <li class="list-group-item list-group-item-default">Location User : 	<div id="location_user" class="bold_text"></div>	</li>	</br>
 				  <li class="list-group-item list-group-item-default">Quote User : 		<div id="quote_user" class="bold_text"></div>		</li>	</br>
 				  <li class="list-group-item list-group-item-default">Company User : 	<div id="company_user" class="bold_text"></div>		</li>	</br>
-				  <li class="list-group-item list-group-item-default">Avatar Url : 		<div id="avatar_url" class="bold_text"></div>		</li>	</br>
+				  <li class="list-group-item list-group-item-default">Avatar Url : 	<img id="img_avatar" src="" height="42" width="42">    </li>	</br>
 				  <li class="list-group-item list-group-item-default">Blog User : 		<div id="blog_user" class="bold_text"></div>		</li>	</br>
 				  <li class="list-group-item list-group-item-default">Public Repository : <div id="repo_user" class="bold_text"></div>		</li>	</br>
 				  <li class="list-group-item list-group-item-default">Follower :   		<span style="cursor:pointer"><a id="follower_link"><div id="follower_user" class="bold_text"></div></a></span></li>	</br>
@@ -132,7 +132,7 @@
 						_printTo("location_user",location);
 						_printTo("quote_user",quote);
 						_printTo("company_user",company);
-						_printTo("avatar_url",avatar);
+					        _setImage("img_avatar",avatar);
 						_printTo("blog_user",blog);
 						_printTo("username",username);
 						_printTo("repo_user",repo);
