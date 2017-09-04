@@ -53,7 +53,7 @@ $(document).ready(function(){
 				_loadDoc("https://api.github.com/users/"+user_input+"",function(res)
 				{
 
-						_printTo("btn_proses","Go");
+						_printTo("btn_proses","Load");
 						/**
 						 * res == Checking if status 404
 						 * @type {[boolean]}
