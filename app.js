@@ -169,7 +169,7 @@ $(document).ready(function(){
 
 								 if (obj)
 								 {
-								 	var template = '<div class="table-responsive"><table class="table table-bordered"><thead> <tr> <th>No</th> <th>ID</th> <th>Name</th> <th>Full Name</th><th>Size</th> <th>API Repository</th> </tr> </thead> <tbody>'; if (obj)
+								 	var template = '<div class="table-responsive"><table class="table table-bordered"><thead> <tr> <th>No</th> <th>ID</th> <th>Name</th> <th>Full Name</th><th>Size</th> <th>API Repository</th> </tr> </thead> <tbody>'; 
 									var j =1;
 									for (var i = 0, len = obj.length; i < len; ++i)
 									 {
