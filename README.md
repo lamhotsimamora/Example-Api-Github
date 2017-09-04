@@ -1,5 +1,5 @@
 # Example-Api-Github
-Example Implementation API Github with Javascript
+Example Implementation API Github using Ajax  ( Bootstrap , jQuery, & gQuery )
 
 ![alt text](https://lamhotsimamora.github.io/Example-Api-Github/example-api-github.png)
 

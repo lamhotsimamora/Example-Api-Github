@@ -2,26 +2,44 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Example Implementation API Github </title>
-	<script src="https://rawgit.com/lamhotsimamora/GF-Javascript/master/JS/GF-1.js"></script>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<script src="https://cdn.rawgit.com/lamhotsimamora/GF-Javascript/master/JS/GF-1.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style type="text/css">
 	 	.bold_text {  font-weight: bold; }
 	</style>
+	<meta name="og:image" 			content="https://raw.githubusercontent.com/lamhotsimamora/Example-Api-Github/master/logo.png" />
+	<link rel="shortcut icon" type="image/png" href="ico.png"/>
+	<meta name="ROBOTS" 			content="index"/>
+	<meta name="Author" 			content="@lamhotsimamora" />
+	<meta name="copyright" 			content="Copyright@2017 | All Right Reserved" />
+	<meta property="og:title" 		content="Example API GITHUB | GARUDA QUERY JAVASCRIPT" />
+	<meta property="og:description" content="Example API GITHUB| GARUDA QUERY JAVASCRIPT" />
+	<meta property="og:name"      	content="Example API GITHUB | GARUDA QUERY JAVASCRIPT" />
+	<meta property="og:image"     	content="https://raw.githubusercontent.com/lamhotsimamora/Example-Api-Github/master/logo.png" />
+	<meta name="language" 		  	content="Indonesian, English" />
+	<meta name="distribution" 	  	content="Global" />
+	<meta name="rating" 		  	content="General" />
+	<meta name="expires" 		  	content="1800" />
+	<meta name="theme-color"      	content="#2980b9"> 
 </head>
 <body>
 	<div class="container">
 	  <div class="jumbotron">
-	    <h1>Example Implementation API Github</h1> 
-	    <p>Bootstrap & <a href="https://github.com/lamhotsimamora/GF-Javascript">Garuda Query Javascript</a></p> 
+	    <h2>Example Implementation API Github</h2> 
+	    <hr>
+	    <p>Bootstrap, jQuery & <a onclick="_newTab('https://github.com/lamhotsimamora/GF-Javascript');">Garuda Query Javascript</a></p> 
 	  </div>
 	 
 	</div>
 	<div class="container">
 		<div id="message"></div>
 		<input type="text" class="form-control" placeholder="Username Github" id="user_input"></br>
-		<button id="btn_proses" class="btn btn-primary" onclick="getProfileUser();"">Run</button>
+		<button id="btn_proses" class="btn btn-primary">Load</button>
 	</div>
 	</br>
 	<div class="container">
@@ -30,143 +48,56 @@
 			<div class="panel-heading">User Profile</div>
 			<div class="panel-body">
 				  <li class="list-group-item list-group-item-default">ID User : 		<div id="id_user" class="bold_text"></div>			</li>	</br>
-				   <li class="list-group-item list-group-item-default">Username : 		<div id="username" class="bold_text"></div>			</li>	</br>
+				   <li class="list-group-item list-group-item-default">Username : 		<div id="username" class="bold_text"></div>		
+				   <img id="img_avatar" class="img-thumbnail" height="42" width="42">	</li>	</br>
 				  <li class="list-group-item list-group-item-default">Location User : 	<div id="location_user" class="bold_text"></div>	</li>	</br>
 				  <li class="list-group-item list-group-item-default">Quote User : 		<div id="quote_user" class="bold_text"></div>		</li>	</br>
 				  <li class="list-group-item list-group-item-default">Company User : 	<div id="company_user" class="bold_text"></div>		</li>	</br>
-				  <li class="list-group-item list-group-item-default">Avatar Url : 	<img id="img_avatar" src="" height="42" width="42">    </li>	</br>
+				
 				  <li class="list-group-item list-group-item-default">Blog User : 		<div id="blog_user" class="bold_text"></div>		</li>	</br>
 				  <li class="list-group-item list-group-item-default">Public Repository : <div id="repo_user" class="bold_text"></div>		</li>	</br>
-				  <li class="list-group-item list-group-item-default">Follower :   		<span style="cursor:pointer"><a id="follower_link"><div id="follower_user" class="bold_text"></div></a></span></li>	</br>
-				  <li class="list-group-item list-group-item-default">Subscriber :   	<span style="cursor:pointer"><a id="subscriber_link"><div id="subscriber_user" class="bold_text"></div></a></span></li>	
+				  <li class="list-group-item list-group-item-default">Follower :  <strong id="dis_f"></strong> 		
+				  <span style="cursor:pointer">
+				 
+				  <div id="follower_user" class="bold_text">
+				  	
+				  </div>
+				  </span></li>	</br>
+				  <li class="list-group-item list-group-item-default">Subscriber :   	<span style="cursor:pointer">
+				  <div id="subscriber_user" class="bold_text">
+				  	
+				  </div>
+				  </span></li>	
 			</div>
 		</div>
 		
 		</ul>
 	</div>
 
-	
-	<script type="text/javascript">
-	/**
-	 * Garuda Javascript Query
-	 *
-	 * Method that used :
-	 * _getValById("");
-         * _getById("");
-	 * _loadDoc("");
-	 * _printTo("");
-	 * _clear("");
-	 * _focus("");
-         * _onClick("");
-	 */
-		var user_input;
+	<div id="_myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
 
-		function clearAll()
-		{
-			/**
-			 * clear div object
-			 */
-			_clear("id_user",true);
-			_clear("location_user",true);
-			_clear("quote_user",true);
-			_clear("company_user",true);
-			 _setImage("img_avatar","");
-			_clear("blog_user",true);
-			_clear("message",true);
-			_clear("username",true);
-			_clear("repo_user",true);
-		        _clear("follower_user",true);
-			_clear("subscriber_user",true);
-		}
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title" id="my_title"></h4>
+	      </div>
+	      <div class="modal-body">
+	        <center>
+	        	<div  id="display_result">
+	        		
+	        	</div>
+	        </center>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
 
-		function getProfileUser()
-		{
-			clearAll();
-			
-			user_input = _getValById("user_input");
-
-			if (user_input)
-			{
-				_getById("btn_proses").innerHTML="Please Wait...";
-				/**
-				 * [_loadDoc Ajax Request Load Document]
-				 * @URL  {String} "https://api.github.com/users/username"				
-				 * @return {[response.Text]}  
-				 */
-				_loadDoc("https://api.github.com/users/"+user_input+"",function(res)
-				{
-						_getById("btn_proses").innerHTML="Go";
-						/**
-						 * res == Checking if status 404
-						 * @type {[boolean]}
-						 */
-						if (res===false)
-						{
-							/**
-							 * show alert of bootstrap
-							 */
-							_writeAlert("message","User not found !","danger");
-							_focus("user_input");
-							return;
-						}
-						/**
-						 * JSON Parse
-						 * obj {[obj]}
-						 */
-						var obj 	= JSON.parse(res);
-						var id       	= obj.id;
-						var username 	= obj.login;
-						var location 	= obj.location;
-						var company  	= obj.company;
-						var quote 	= obj.bio;
-						var avatar   	= obj.avatar_url;
-						var blog 	= obj.blog;
-						var repo     	= obj.public_repos;
-						var follower    = obj.followers_url;
-						var subscriber  = obj.subscriptions_url;
-
-						/**
-						 * _printTo("") === document.getElementById("").innerHTML ="";
-						 */
-						_printTo("id_user",id);
-						_printTo("location_user",location);
-						_printTo("quote_user",quote);
-						_printTo("company_user",company);
-					        _setImage("img_avatar",avatar);
-						_printTo("blog_user",blog);
-						_printTo("username",username);
-						_printTo("repo_user",repo);
-						_printTo("follower_user",follower);
-						_printTo("subscriber_user",subscriber);
-                                                
-						/**
-						 * _onClick() === give event method onclick to object
-						 */			  
-						_onClick("follower_link",function(){
-							_newForm(false,follower);
-						});
-						_onClick("subscriber_link",function(){
-							_newForm(false,subscriber);
-						});
-				});
-			}
-			else
-			{
-				_focus("user_input");
-				_writeAlert("message","Upzz you have to type the username","danger"); 
-			}
-		}
-		/**
-		 * set focus to input text
-		 */
-		_focus("user_input");
-
-
-		clearAll();
-
-	</script>
-
-
+	  </div>
+	</div>
+	<script src="app.js"></script>
 
 </body>
 </html>
