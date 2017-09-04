@@ -30,7 +30,7 @@ $(document).ready(function(){
 		_clear("repo_user",true);
 		_clear("follower_user",true);
 		_clear("subscriber_user",true);
-		_clear("dis_f");
+		_clear("dis_f",true);
 	}
 	
 
