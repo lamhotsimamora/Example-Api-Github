@@ -50,9 +50,10 @@ $(document).ready(function(){
 				 * @URL  {String} "https://api.github.com/users/username"				
 				 * @return {[response.Text]}  
 				 */
+				 btn_proses.disabled = true;
 				_loadDoc("https://api.github.com/users/"+user_input+"",function(res)
 				{
-
+						 btn_proses.disabled = false;
 						_printTo("btn_proses","Load");
 						/**
 						 * res == Checking if status 404
@@ -93,7 +94,7 @@ $(document).ready(function(){
 						_printTo("quote_user",quote);
 						_printTo("company_user",company);
 				        _setImage("img_avatar",avatar);
-						_printTo("blog_user",blog);
+						_printTo("blog_user","<a href='"+blog+"' target='_blank'>"+blog+"</a>");
 						_printTo("username","<a href='"+html_url+"' target='_blank'>"+username+"</a>");
 						_printTo("repo_user",repo);
 						_printTo("dis_f",followers);
@@ -131,7 +132,7 @@ $(document).ready(function(){
 
 								 if (obj)
 								 {
-								 	var template = '<div class="table-responsive"><table class="table table-bordered"><thead> <tr> <th>No</th> <th>ID</th> <th>Username</th> <th> API Repository </th> <th>API Organization</th> </tr> </thead> <tbody>'; 
+								 	var template = '<div class="table-responsive"><table class="table table-bordered"><thead> <tr> <th>No</th> <th>ID</th> <th> Username Github </th> <th> API Repository </th> <th>API Organization</th> </tr> </thead> <tbody>'; 
 
 									var j =1;
 									for (var i = 0, len = obj.length; i < len; ++i)
@@ -142,7 +143,9 @@ $(document).ready(function(){
 										var avatar = obj[i].avatar_url;
 										var org = obj[i].organizations_url;
 										
-									    template += ' <tr><td>'+j+'</td> <td>'+id+'</td> <td><a href="https://github.com/'+username+'" target="_blank">'+username+'</a> <img src="'+avatar+'" width="60" height="60" class="img-thumbnail"></img></td> <td><a href="'+repo+'" target="_blank">'+repo+'</a></td> <td><a href="'+org+'" target="_blank">'+org+'</a></td> </tr>'; 
+									    template += ' <tr><td>'+j+'</td> <td>'+id+'</td> <td><center><a href="https://github.com/'+username+'" target="_blank">'+username
+									    											+'</a> </br><img src="'+avatar+'" width="60" height="60" class="img-thumbnail"></img></center> </td> <td><a href="'
+									    											+repo+'" target="_blank">'+repo+'</a></td> <td><a href="'+org+'" target="_blank">'+org+'</a></td> </tr>'; 
 										j++;
 									}
 									    template += ' </tbody> </table></div>'; 
