@@ -59,7 +59,7 @@ $(document).ready(function(){
 						 * res == Checking if status 404
 						 * @type {[boolean]}
 						 */
-						if (res===false)
+						if (res==false)
 						{
 							/**
 							 * show alert of bootstrap
